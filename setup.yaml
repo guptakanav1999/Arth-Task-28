@@ -1,0 +1,11 @@
+- hosts: master
+  roles:
+                    - role: master
+                      control_plane_endpoint_ip: 65.2.69.135
+- hosts: workers
+  vars_prompt:
+     - name: "master_token"
+       prompt: "Please enter token to JOIN master node : "
+       private: no
+  roles:
+          - role: slave
